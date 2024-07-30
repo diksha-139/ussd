@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working with Arrays</title>
+</head>
+<body>
+    <script>
+        var arr1 = [1,4,5,6,7,12,23,76,92,59,47,35,13,46,88,90,24]
+        
+        var showPrompt = ()=>{
+            var result = prompt("Enter 1 to Show Array Items\n ENter 2 to make square of all items \n Enter 3 to add all items of the array\n ENter 4 to delete an Item from the array\n Enter 5 to insert a new item in the array \n Enter e to exit from this");
+
+            return result
+            
+        }
+
+        
+        
+        
+        
+        function main(){
+            
+            var ussd = showPrompt();
+            
+            if(ussd){
+                if(ussd == 1){
+                    alert("Your array is : "+arr1);
+                    // showPrompt();
+                    main()
+                } 
+                if(ussd == 2){
+                    var arr1_sqr = arr1.map((v)=>{
+                        return v**2;
+                    })
+                    alert("Squared array is : "+arr1_sqr);
+                    // showPrompt()
+                    main()
+                } 
+                if(ussd == 3){
+                    var total_arr1 = arr1.reduce((prev,curr)=>{
+                        return prev + curr
+                        
+                    },0)
+                    alert("Sum of the array is: "+total_arr1);
+                    // showPrompt()
+                    main()
+                } 
+                if(ussd == 4){
+                    var idx = prompt("Enter the index of the number you would like to delete: ");
+                    
+                    var i = parseInt(idx);
+                    var new_arr1 = arr1.splice(i,1);
+                    alert("Your updated array is : "+arr1);
+                    // showPrompt()
+                    main()
+                } 
+                if(ussd == 5){
+                    var value = prompt("Add a new number in the array: ");
+                    var new_arr1 = arr1.push(parseInt(value));
+                    
+                    alert("Your new array is : "+arr1);
+                    // showPrompt()
+                    main()
+                } 
+                if (ussd == 'e'){
+                    exit();               
+                    
+                 }
+            }
+        }
+
+
+        
+        main()
+    </script>
+    
+</body>
+</html>
